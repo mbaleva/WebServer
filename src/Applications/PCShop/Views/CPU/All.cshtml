@@ -1,0 +1,15 @@
+﻿<div class="row">
+    @foreach (PCShop.ViewModels.Shared.BaseModel item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <h5 class="card-title">Price: @item.Price</h5>
+                <a href="/CPU/ById?id=@item.Id" class="btn btn-primary">See more</a>
+            </div>
+        </div>
+    }
+</div>
+<br/>
+<br/>

@@ -1,0 +1,18 @@
+﻿<form method="post">
+    @PartialViews.ValidationPartial
+    @PartialViews.CommonFormFieldsPartial
+
+    <div class="form-group">
+        <label for="capacity">Capacity</label>
+        <input type="number" name="capacity" class="form-control" id="" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="frequency">Frequency</label>
+        <input type="number" name="frequency" class="form-control" id="">
+    </div>
+    <div class="form-group">
+        <label for="memoryType">Memory Type</label>
+        <input type="text" name="memoryType" class="form-control" id="">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
