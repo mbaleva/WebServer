@@ -6,10 +6,11 @@
     using WebServer.MVC.DependencyInjection;
     using WebServer.MVC.Identity;
     using WebServer.MVC.DependencyInjection.Extensions;
+    using WebServer.MVC.Middlewares.Builder;
 
     public class StartUp : IMvcApplication
     {
-        public void Configure(List<Route> routeTable)
+        public void Configure(IApplicationBuilder app)
         {
         }
 

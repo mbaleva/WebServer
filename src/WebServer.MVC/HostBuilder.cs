@@ -17,19 +17,22 @@
     using WebServer.MVC.ControllerHelpers;
     using WebServer.MVC.Validation;
     using WebServer.MVC.Attributes.Validation;
-    using WebServer.MVC.ViewEngine;
+    using WebServer.MVC.Config;
 
     public static class HostBuilder
     {
         private static IControllerState controllerState = new ControllerState();
         public static async Task CreateHostAsync(
-            IMvcApplication application, int port)
+            IMvcApplication application)
         {
             List<Route> routeTable = new List<Route>();
             IServiceCollection services = new ServiceCollection();
 
+            services.AddSingleton<IConfiguration, Configuration>();
+            IConfiguration config = services.GetRequiredService<IConfiguration>();
+            int port = config.GetValue<int>("Port");
+
             application.ConfigureServices(services);
-            application.Configure(routeTable);
 
             RegisterStaticFiles(routeTable);
             RegisterRoutes(routeTable, application, services);
