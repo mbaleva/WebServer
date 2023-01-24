@@ -26,7 +26,6 @@
             while (true)
             {
                 TcpClient tcpClient = await tcpListener.AcceptTcpClientAsync();
-                Console.WriteLine("After accepting the tcp client");
                 ProcessTcpClientAsync(tcpClient);
             }
         }

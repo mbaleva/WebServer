@@ -18,6 +18,7 @@
     using WebServer.MVC.Validation;
     using WebServer.MVC.Attributes.Validation;
     using WebServer.MVC.ViewEngine;
+    using WebServer.MVC.Middlewares;
 
     public static class HostBuilder
     {
@@ -29,7 +30,7 @@
             IServiceCollection services = new ServiceCollection();
 
             application.ConfigureServices(services);
-            application.Configure(routeTable);
+            application.Configure(routeTable, (IApplicationBuilder)services.GetRequiredService<IApplicationBuilder>());
 
             RegisterStaticFiles(routeTable);
             RegisterRoutes(routeTable, application, services);
