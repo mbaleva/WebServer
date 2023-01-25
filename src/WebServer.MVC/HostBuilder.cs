@@ -19,6 +19,7 @@
     using WebServer.MVC.Attributes.Validation;
     using WebServer.MVC.ViewEngine;
     using WebServer.MVC.Middlewares;
+    using Microsoft.CodeAnalysis.CSharp.Syntax;
 
     public static class HostBuilder
     {
@@ -140,6 +141,8 @@
             Type controller, MethodInfo method,
             IServiceCollection services)
         {
+            var builder = services.GetRequiredService<IApplicationBuilder>();
+            builder.TriggerRequestPipeline(services, context);
             Controller instance =
             services.CreateInstance(controller) as Controller;
 
