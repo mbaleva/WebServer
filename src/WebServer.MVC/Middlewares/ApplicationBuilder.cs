@@ -28,7 +28,7 @@ namespace WebServer.MVC.Middlewares
         public void TriggerRequestPipeline(IServiceCollection services, HttpContext context) 
         {
             var firstMiddleware = this.middlewaresChain.First;
-
+             
             var second = firstMiddleware.Next.Value.GetMethod("Invoke").CreateDelegate(typeof(RequestDelegate), null);
             var current = Activator.CreateInstance(firstMiddleware.Value, second);
             dynamic castedMiddleware = Convert.ChangeType(current, firstMiddleware.Value);

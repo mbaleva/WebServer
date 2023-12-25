@@ -12,9 +12,6 @@
     {
         public void Configure(List<Route> routeTable, IApplicationBuilder builder)
         {
-            builder.UseMiddleware<AuthenticationMiddleware>();
-            builder.UseMiddleware<AuthorizationMiddleware>();
-            builder.UseMiddleware<CorsMiddleware>();
         }
 
         public void ConfigureServices(IServiceCollection services)

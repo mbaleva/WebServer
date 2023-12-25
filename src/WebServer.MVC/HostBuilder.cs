@@ -142,7 +142,6 @@
             IServiceCollection services)
         {
             var builder = services.GetRequiredService<IApplicationBuilder>();
-            builder.TriggerRequestPipeline(services, context);
             Controller instance =
             services.CreateInstance(controller) as Controller;
 
