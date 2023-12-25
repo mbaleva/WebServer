@@ -24,11 +24,12 @@
     public static class HostBuilder
     {
         private static IControllerState controllerState = new ControllerState();
-        public static async Task CreateHostAsync(
-            IMvcApplication application, int port)
+        public static async Task CreateHostAsync<TStartup>(int port)
         {
             List<Route> routeTable = new List<Route>();
             IServiceCollection services = new ServiceCollection();
+
+            IMvcApplication application = Activator.CreateInstance(typeof(TStartup)) as IMvcApplication;
 
             application.ConfigureServices(services);
             application.Configure(routeTable, (IApplicationBuilder)services.GetRequiredService<IApplicationBuilder>());

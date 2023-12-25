@@ -6,7 +6,7 @@
     {
         public static async Task Main(string[] args)
         {
-            await HostBuilder.CreateHostAsync(new StartUp(), 80);
+            await HostBuilder.CreateHostAsync<StartUp>(80);
         }
     }
 }
