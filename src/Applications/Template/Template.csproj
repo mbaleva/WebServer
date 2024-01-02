@@ -35,6 +35,9 @@
     <None Update="wwwroot\css\bootstrap.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="wwwroot\css\custom.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="wwwroot\js\bootstrap.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

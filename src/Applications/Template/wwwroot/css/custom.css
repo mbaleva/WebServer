@@ -1,0 +1,96 @@
+﻿.header {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 1;
+}
+
+label {
+    height: 50%;
+    width: 50%;
+    color: #A9A9A9;
+}
+
+.container {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+a:hover {
+    color: red;
+}
+
+body, h1, h2, p, label {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.form-group::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form {
+    width: 50%;
+    margin: 20px auto;
+}
+
+label {
+    display: inline;
+    margin-right: 10px;
+}
+
+.form-group {
+    display: inline-block;
+    width: 48%;
+    margin-right: 2%;
+}
+
+.form-group-float {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group-flex-shrink {
+    flex: 1;
+}
+
+.form-group-flex-inline {
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
