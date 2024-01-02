@@ -1,4 +1,7 @@
-﻿<form method="post">
+﻿@model PCShop.ViewModels.GPU.GPUViewModel
+
+
+<form method="post">
     @PartialViews.ValidationPartial
     <input type="hidden" value="@Model.Id" />
     <div class="form-group">

@@ -1,4 +1,7 @@
-﻿<form method="post">
+﻿@model PCShop.Data.Models.HardDrive
+
+
+<form method="post">
     @PartialViews.ValidationPartial
     <input type="hidden" value="@Model.Id" />
     <div class="form-group">
