@@ -10,17 +10,37 @@
     using System.Linq;
     using WebServer.HTTP.Enums;
 
-    public class HttpServer : IHttpServer
+    public class HttpServer : IHttpServer, IDisposable
     {
         private List<Route> routes;
+        private TcpListener tcpListener;
 
         public HttpServer(List<Route> routes)
         {
             this.routes = routes;
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (tcpListener != null)
+                {
+                    tcpListener.Stop();
+                    tcpListener = null;
+                }
+            }
+        }
+
         public async Task Start(int port)
         {
-            TcpListener tcpListener =
+            tcpListener =
                 new TcpListener(IPAddress.Loopback, port);
             tcpListener.Start();
             while (true)
